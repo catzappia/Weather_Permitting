@@ -1,19 +1,25 @@
 // start SERVICE_v01.01 code
-// TODO: Define a City class with name and id properties
+// Define a City class with name and id properties
+class City {
+  constructor(public name: string, public id: string) {}
+}
 
 // TODO: Complete the HistoryService class
 class HistoryService { // <- starter code
   // TODO: Define a read method that reads from the searchHistory.json file
-  private async read() { // <- starter code
-  async getHistory() {
-  return await this.getCities();
-  }
-  // TODO: Define a write method that writes the updated cities array to the searchHistory.json file
-  private async write(cities: City[]) { // <- starter code
-    private async read() {
+  private async read() {
     const fs = require('fs');
     const data = fs.readFileSync('searchHistory.json', 'utf8');
     return JSON.parse(data);
+  }
+
+  async getHistory() {
+    return await this.getCities();
+  }
+  // TODO: Define a write method that writes the updated cities array to the searchHistory.json file
+  private async write(cities: City[]) { // <- starter code
+    const fs = require('fs');
+    fs.writeFileSync('searchHistory.json', JSON.stringify(cities, null, 2), 'utf8');
   }
   // TODO: Define a getCities method that reads the cities from the searchHistory.json file and returns them as an array of City objects
   async getCities() { // <- starter code
@@ -38,6 +44,7 @@ class HistoryService { // <- starter code
   async saveCity(city: string) {
     return await this.addCity(city);
   }
-}
+};
+
 // end SERVICE_v01.01 code
 export default new HistoryService();

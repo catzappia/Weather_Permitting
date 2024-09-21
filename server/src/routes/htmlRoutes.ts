@@ -8,7 +8,7 @@ const router = Router();
 // start ROUTES_v02.01 code
 // TODO: Define route to serve index.html
 router.get('/', (_req, res) => {
-  res.sendFile(path.join(__dirname, '../../public/index.html'));
+  res.sendFile(path.join(__dirname, '../../client/index.html'));
 });
 // end ROUTES_v02.01 code
 export default router;
